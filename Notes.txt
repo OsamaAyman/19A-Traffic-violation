@@ -1,0 +1,7 @@
+to login as admin :
+user name =Admin
+password =123
+--------------------
+to login as driver:
+sign up first then 
+login

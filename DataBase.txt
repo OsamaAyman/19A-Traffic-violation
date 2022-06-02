@@ -1,0 +1,39 @@
+--------------------------------------------------------
+ -- DROP TABLE "USERINFO" cascade constraints;
+ -- DROP TABLE "VIOLATIONINFO" cascade constraints;
+--------------------------------------------------------
+--  DDL for Table USERINFO
+--------------------------------------------------------
+
+  CREATE TABLE "USERINFO" 
+   (	"USERNAME" VARCHAR2(50), 
+	"FNAME" VARCHAR2(20), 
+	"LNAME" VARCHAR2(20), 
+	"USERPW" VARCHAR2(20), 
+	"MOBILE" NUMBER(11,0), 
+	"ADDRESS" VARCHAR2(100), 
+	"CARID" VARCHAR2(20)
+   ) ;
+--------------------------------------------------------
+--  DDL for Table VIOLATIONINFO
+--------------------------------------------------------
+
+  CREATE TABLE "VIOLATIONINFO" 
+   (	"VIOLATIONID" NUMBER(6,0), 
+	"CARID" VARCHAR2(7), 
+	"VIOLATIONDES" VARCHAR2(500), 
+	"VDATE" VARCHAR2(20), 
+	"VTIME" VARCHAR2(20), 
+	"VLOCATION" VARCHAR2(20), 
+	"COMPLAINDES" VARCHAR2(500), 
+	"STATUS" VARCHAR2(20)
+   ) ;
+---------------------------------------------------------
+create or replace procedure GetViolationID
+(VID out number)
+as
+begin
+select max(VIOLATIONID)
+into VID
+from VIOLATIONINFO;
+end;
